@@ -45,3 +45,26 @@ function общие_делители(arr) {
 }
 let arr = [42, 12, 18];
 console.log(общие_делители(arr));
+
+function простые_числа(min, max) {
+  let простые = [];
+  function isPrime(num) {
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  }
+
+  for (let i = min; i <= max; i++) {
+    if (isPrime(i)) {
+      простые.push(i);
+    }
+  }
+
+  return простые;
+}
+let min = 11;
+let max = 20;
+console.log(простые_числа(min, max));
