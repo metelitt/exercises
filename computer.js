@@ -1,24 +1,24 @@
-function склонение_компьютера(num) {
-  let последние_две_цифры = num % 100;
-  let последняя_цифра = num % 10;
+function Comp(num) {
+  let lastTwo = num % 100;
+  let lastOne = num % 10;
 
-  if (последние_две_цифры >= 11 && последние_две_цифры <= 19) {
+  if (lastTwo >= 11 && lastTwo <= 19) {
     return num + " компьютеров";
-  } else if (последняя_цифра === 1) {
+  } else if (lastOne === 1) {
     return num + " компьютер";
-  } else if (последняя_цифра >= 2 && последняя_цифра <= 4) {
+  } else if (lastOne >= 2 && lastOne <= 4) {
     return num + " компьютера";
   } else {
     return num + " компьютеров";
   }
 }
 
-console.log(склонение_компьютера(25));
-console.log(склонение_компьютера(41));
-console.log(склонение_компьютера(1048));
+console.log(Comp(25));
+console.log(Comp(41));
+console.log(Comp(1048));
 
-function общие_делители(arr) {
-  function НОД(a, b) {
+function Sum(arr) {
+  function NOD(a, b) {
     while (b !== 0) {
       let temp = b;
       b = a % b;
@@ -26,25 +26,25 @@ function общие_делители(arr) {
     }
     return a;
   }
-  function НОД_массива(arr) {
+  function NodMassive(arr) {
     let result = arr[0];
     for (let i = 1; i < arr.length; i++) {
-      result = НОД(result, arr[i]);
+      result = NOD(result, arr[i]);
     }
     return result;
   }
-  let НОД_всех = НОД_массива(arr);
+  let NodAll = NodMassive(arr);
 
-  let делители = [];
-  for (let i = 1; i <= НОД_всех; i++) {
-    if (НОД_всех % i === 0) {
-      делители.push(i);
+  let del = [];
+  for (let i = 1; i <= NodAll; i++) {
+    if (NodAll % i === 0) {
+      del.push(i);
     }
   }
-  return делители;
+  return del;
 }
 let arr = [42, 12, 18];
-console.log(общие_делители(arr));
+console.log(Sum(arr));
 
 function простые_числа(min, max) {
   let простые = [];
